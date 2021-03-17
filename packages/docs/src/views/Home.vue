@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <x-button></x-button>
-  </div>
+  <div>欢迎</div>
 </template>

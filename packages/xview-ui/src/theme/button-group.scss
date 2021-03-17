@@ -1,0 +1,35 @@
+.x-button-group {
+  display: inline-block;
+  vertical-align: middle;
+  + .x-button-group {
+    margin-left: 10px;
+  }
+  > .x-button {
+    border-radius: 0;
+    &:last-child {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+    &:first-child {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &:hover, &:focus, &:active {
+      z-index: 1;
+    }
+    &_primary, &_success, &_info, &_warning, &_danger {
+      &:not(:last-child) {
+        border-right-color: rgba(255, 255, 255, .5);
+      }
+      &:not(:first-child) {
+        border-left-color: rgba(255, 255, 255, .5);
+      }
+    }
+    + .x-button {
+      margin-left: 0;
+    }
+  }
+}
