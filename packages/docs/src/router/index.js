@@ -20,6 +20,10 @@ export default new Router({
     {
       path: '/tag',
       component: () => import('../views/Tag.vue')
+    },
+    {
+      path: '/layout',
+      component: () => import('../views/Layout.vue')
     }
   ]
 })
