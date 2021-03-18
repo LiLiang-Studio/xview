@@ -12,6 +12,10 @@ export default new Router({
     {
       path: '/button',
       component: () => import('../views/Button.vue')
+    },
+    {
+      path: '/link',
+      component: () => import('../views/Link.vue')
     }
   ]
 })

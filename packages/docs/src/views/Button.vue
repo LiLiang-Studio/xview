@@ -82,6 +82,10 @@
         <x-button icon="x-icon-share"></x-button>
         <x-button icon="x-icon-delete"></x-button>
       </x-button-group>
+      <x-button-group size="small">
+        <x-button type="primary" icon="x-icon-arrow-left">上一页</x-button>
+        <x-button type="primary">下一页<i class="x-icon-arrow-right x-icon--right"></i></x-button>
+      </x-button-group>
     </div><br>
 
     <div>

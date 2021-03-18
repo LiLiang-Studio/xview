@@ -6,6 +6,14 @@
 
 <script>
 export default {
-  name: 'XButtonGroup'
+  name: 'XButtonGroup',
+  props: {
+    size: String
+  },
+  provide () {
+    return {
+      xButtonGroup: this
+    }
+  }
 }
 </script>

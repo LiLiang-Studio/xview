@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :type="nativeType" :disabled="disabledBtn || loading" v-bind="$attrs" v-on="$listeners">
+  <button :class="classes" :type="nativeType" :disabled="disabledBtn || loading" v-on="$listeners">
     <i v-if="icon && !loading" :class="icon" />
     <i v-if="loading" class="x-icon-loading" />
     <span v-if="$slots.default">
@@ -14,7 +14,8 @@ const B = Boolean
 export default {
   name: 'XButton',
   inject: {
-    xForm: { default: '' }
+    xForm: { default: '' },
+    xButtonGroup: { default: '' }
   },
   props: {
     size: S,
@@ -34,7 +35,7 @@ export default {
     classes () {
       const prefixCls = 'x-button'
       const { type } = this
-      const btnSize = this.size || (this.xForm || {}).size || (this.$XVIEW || {}).size
+      const btnSize = this.size || (this.xButtonGroup || {}).size || (this.xForm || {}).size || (this.$XVIEW || {}).size
       return [
         prefixCls,
         `${prefixCls}_${type}`,
