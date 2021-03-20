@@ -1,0 +1,10 @@
+.x-container {
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  flex: 1;
+  min-width: 0;
+  &.is-vertical {
+    flex-direction: column;
+  }
+}

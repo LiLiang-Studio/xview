@@ -24,6 +24,10 @@ export default new Router({
     {
       path: '/layout',
       component: () => import('../views/Layout.vue')
+    },
+    {
+      path: '/container',
+      component: () => import('../views/Container.vue')
     }
   ]
 })
