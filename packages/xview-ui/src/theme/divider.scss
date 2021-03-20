@@ -21,6 +21,7 @@
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: $--color-text-primary;
     &.left {
       left: 20px;
       transform: translateY(-50%);

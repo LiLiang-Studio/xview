@@ -40,6 +40,10 @@ export default new Router({
     {
       path: '/divider',
       component: () => import('../views/Divider.vue')
+    },
+    {
+      path: '/page-header',
+      component: () => import('../views/PageHeader.vue')
     }
   ]
 })
