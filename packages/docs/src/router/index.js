@@ -28,6 +28,14 @@ export default new Router({
     {
       path: '/container',
       component: () => import('../views/Container.vue')
+    },
+    {
+      path: '/avatar',
+      component: () => import('../views/Avatar.vue')
+    },
+    {
+      path: '/card',
+      component: () => import('../views/Card.vue')
     }
   ]
 })

@@ -1,0 +1,31 @@
+@import 'common/var.scss';
+
+@mixin size ($size: 40px) {
+  width: $size;
+  height: $size;
+  line-height: $size;
+}
+
+.x-avatar {
+  display: inline-block;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 50%;
+  background-color: $--color-text-placeholder;
+  @include size;
+  &_medium {
+    @include size(36px);
+  }
+  &_small {
+    @include size(28px);
+  }
+  &_square {
+    border-radius: 4px;
+  }
+  > img {
+    display: block;
+    height: 100%;
+  }
+}
