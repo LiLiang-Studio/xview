@@ -36,6 +36,10 @@ export default new Router({
     {
       path: '/card',
       component: () => import('../views/Card.vue')
+    },
+    {
+      path: '/divider',
+      component: () => import('../views/Divider.vue')
     }
   ]
 })

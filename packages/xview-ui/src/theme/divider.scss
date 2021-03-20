@@ -1,0 +1,34 @@
+@import 'common/var.scss';
+
+.x-divider {
+  margin: 24px 0;
+  position: relative;
+  border-top: $--border-base;
+  &_vertical {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1em;
+    margin: 0 8px;
+    border-top: none;
+    border-left: $--border-base;
+  }
+  &_text {
+    font-size: 14px;
+    padding: 0 20px;
+    background-color: #fff;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &.left {
+      left: 20px;
+      transform: translateY(-50%);
+    }
+    &.right {
+      left: auto;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+  }
+}
