@@ -52,6 +52,10 @@ export default new Router({
     {
       path: '/badge',
       component: () => import('../views/Badge.vue')
+    },
+    {
+      path: '/alert',
+      component: () => import('../views/Alert.vue')
     }
   ]
 })
