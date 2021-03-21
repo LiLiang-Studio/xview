@@ -60,6 +60,10 @@ export default new Router({
     {
       path: '/backtop',
       component: () => import('../views/Backtop.vue')
+    },
+    {
+      path: '/radio',
+      component: () => import('../views/Radio.vue')
     }
   ]
 })
