@@ -56,6 +56,10 @@ export default new Router({
     {
       path: '/alert',
       component: () => import('../views/Alert.vue')
+    },
+    {
+      path: '/backtop',
+      component: () => import('../views/Backtop.vue')
     }
   ]
 })

@@ -21,3 +21,19 @@ export const createStylesheet = (id, str) => {
     document.head.appendChild(el)
   }
 }
+
+export const throttle = (fn, gapTime = 16) => {
+  let tid
+  let lastTime
+  return () => {
+    clearTimeout(tid)
+    const nowTime = Date.now()
+    const interval = nowTime - lastTime
+    if (!lastTime || interval > gapTime) {
+      fn()
+      lastTime = nowTime
+    } else {
+      tid = setTimeout(fn, interval)
+    }
+  }
+}
