@@ -11,7 +11,7 @@ export const PageHeader = {
   render (h) {
     const prefixCls = 'x-page-header'
     return h('div', { class: prefixCls }, [
-      h('div', { class: `${prefixCls}_left` }, [
+      h('div', { class: `${prefixCls}_left`, on: { click: () => this.$emit('back') } }, [
         h('i', { class: 'x-icon-back' }),
         h('div', this.$slots.title || this.title)
       ]),

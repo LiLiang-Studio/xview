@@ -44,6 +44,10 @@ export default new Router({
     {
       path: '/page-header',
       component: () => import('../views/PageHeader.vue')
+    },
+    {
+      path: '/breadcrumb',
+      component: () => import('../views/Breadcrumb.vue')
     }
   ]
 })
