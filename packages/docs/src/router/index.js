@@ -48,6 +48,10 @@ export default new Router({
     {
       path: '/breadcrumb',
       component: () => import('../views/Breadcrumb.vue')
+    },
+    {
+      path: '/badge',
+      component: () => import('../views/Badge.vue')
     }
   ]
 })

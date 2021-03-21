@@ -1,5 +1,6 @@
 /** @typedef {import('vue').ComponentOptions} ComponentOptions  */
 
+const S = String
 const compName = 'XBreadcrumb'
 const prefixCls = 'x-breadcrumb'
 
@@ -10,11 +11,8 @@ export const Breadcrumb = {
     return { XBreadcrumb: this }
   },
   props: {
-    separator: {
-      type: String,
-      default: '/'
-    },
-    separatorClass: String
+    separator: { type: S, default: '/' },
+    separatorClass: S
   },
   render (h) {
     return h('div', { class: prefixCls }, this.$slots.default)
@@ -26,7 +24,7 @@ export const BreadcrumbItem = {
   name: `${compName}Item`,
   inject: [compName],
   props: {
-    to: [String, Object],
+    to: [S, Object],
     replace: Boolean
   },
   render (h) {

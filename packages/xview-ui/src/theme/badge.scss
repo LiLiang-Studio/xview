@@ -1,0 +1,43 @@
+@import 'common/var.scss';
+
+.x-badge {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  &_content {
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 6px;
+    height: 20px;
+    line-height: 18px;
+    border-radius: 10px;
+    white-space: nowrap;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: $--color-danger;
+    &.primary {
+      background-color: $--color-primary;
+    }
+    &.success {
+      background-color: $--color-success;
+    }
+    &.warning {
+      background-color: $--color-warning;
+    }
+    &.info {
+      background-color: $--color-info;
+    }
+    &.is-fixed {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      transform: translate(100%, -50%);
+    }
+    &.is-dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      right: 5px;
+    }
+  }
+}
