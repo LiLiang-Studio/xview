@@ -84,4 +84,7 @@ export default {
   background: #fff6f6;
   color: #ff8484;
 }
+.infinite-list-wrapper .list-item+.list-item {
+  margin-top: 10px;
+}
 </style>
