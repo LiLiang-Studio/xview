@@ -11,6 +11,7 @@ $prefixCls: x-radio;
   font-size: 14px;
   line-height: 1;
   color: $--color-text-regular;
+  transition: all .2s;
   & + & {
     margin-left: 30px;
   }
@@ -23,6 +24,9 @@ $prefixCls: x-radio;
     justify-content: center;
     border: $--border-base;
     background-color: #fff;
+    &:hover {
+      border-color: $--color-primary;
+    }
   }
   &_dot {
     width: 4px;
@@ -40,7 +44,8 @@ $prefixCls: x-radio;
   &.is-active {
     color: $--color-primary;
     .#{$prefixCls}_radio {
-      background-color: $--color-primary;
+      border-color: currentColor;
+      background-color: currentColor;
     }
   }
   &.is-disabled {
@@ -60,19 +65,26 @@ $prefixCls: x-radio;
     &.is-disabled {
       border-color: $--border-color-lighter;
     }
-  }
-  &_medium.is-border {
-    padding: 10px 20px;
     &.is-active {
       border-color: $--color-primary;
     }
   }
+  &_medium.is-border {
+    padding: 10px 20px;
+  }
   &_small.is-border {
-    font-size: 12px;
     padding: 9px 15px;
   }
   &_mini.is-border {
-    font-size: 12px;
     padding: 7px 15px;
+  }
+  &_small, &_mini {
+    &.is-border {
+      font-size: 12px;
+      .#{$prefixCls}_radio {
+        width: 12px;
+        height: 12px;
+      }
+    }
   }
 }

@@ -30,26 +30,27 @@ export const Radio = {
     return { model: this.value }
   },
   watch: {
-    value (val) {
-      this.model = val
-    },
+    value: 'updateModel',
     model (val) {
       this.$emit('input', val)
+    }
+  },
+  methods: {
+    updateModel (val) {
+      this.model = val
+    },
+    emitChange (val) {
+      this.updateModel(val)
+      this.$emit('change', val)
     }
   },
   render (h) {
     const { border } = this
     const size = border && getSize(this)
     const disabled = isDisabled(this)
-    const isActive = this.xRadioGroup ? this.xRadioGroup.value === this.label : this.model === this.label
+    const active = (this.xRadioGroup || this).model === this.label
     const onClick = () => {
-      if (!disabled) {
-        if (this.xRadioGroup) {
-          this.xRadioGroup.updateModel(this.label)
-        } else {
-          this.model = this.label
-        }
-      }
+      !disabled && (this.xRadioGroup || this).emitChange(this.label)
     }
     return h('label', {
       class: [
@@ -58,14 +59,14 @@ export const Radio = {
         {
           'is-border': border,
           'is-disabled': disabled,
-          'is-active': isActive
+          'is-active': active
         }
       ],
       on: { click: onClick }
     }, [
       h('span', { class: `${prefixCls}_radio` }, [
         h('transition', { props: { name: prefixCls } }, [
-          isActive && h('span', { class: `${prefixCls}_dot` })
+          active && h('span', { class: `${prefixCls}_dot` })
         ])
       ]),
       h('span', { class: `${prefixCls}_label` }, this.$slots.default || this.label)
@@ -78,7 +79,7 @@ export const RadioButton = {
   name: 'XRadioButton',
   inject: {
     xForm: { default: '' },
-    xRadioGroup: { default: '' }
+    xRadioGroup: {}
   },
   props: {
     label: [S, N],
@@ -89,7 +90,7 @@ export const RadioButton = {
     const size = getSize(this)
     const disabled = isDisabled(this)
     const onClick = () => {
-      !disabled && this.xRadioGroup.updateModel(this.label)
+      !disabled && this.xRadioGroup.emitChange(this.label)
     }
     return h('button', {
       class: [
@@ -97,7 +98,7 @@ export const RadioButton = {
         size && `${btnCls}_${size}`,
         {
           'is-disabled': disabled,
-          'is-active': this.xRadioGroup.value === this.label
+          'is-active': this.xRadioGroup.model === this.label
         }
       ],
       on: { click: onClick }
@@ -130,6 +131,10 @@ export const RadioGroup = {
   methods: {
     updateModel (val) {
       this.model = val
+    },
+    emitChange (val) {
+      this.updateModel(val)
+      this.$emit('change', val)
     }
   },
   render (h) {
