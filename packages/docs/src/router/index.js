@@ -68,6 +68,10 @@ export default new Router({
     {
       path: '/switch',
       component: () => import('../views/Switch.vue')
+    },
+    {
+      path: '/infinite-scroll',
+      component: () => import('../views/InfiniteScroll.vue')
     }
   ]
 })
