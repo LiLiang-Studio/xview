@@ -64,6 +64,10 @@ export default new Router({
     {
       path: '/radio',
       component: () => import('../views/Radio.vue')
+    },
+    {
+      path: '/switch',
+      component: () => import('../views/Switch.vue')
     }
   ]
 })
