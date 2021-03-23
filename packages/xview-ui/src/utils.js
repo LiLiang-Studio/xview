@@ -22,18 +22,26 @@ export const createStylesheet = (id, str) => {
   }
 }
 
+/**
+ * @param {Function} fn
+ * @param {number} gapTime
+ * @returns
+ */
 export const throttle = (fn, gapTime = 16) => {
   let tid
   let lastTime
-  return () => {
+  return function () {
     clearTimeout(tid)
     const nowTime = Date.now()
     const interval = nowTime - lastTime
+    const cb = () => {
+      fn.apply(this, arguments)
+    }
     if (!lastTime || interval > gapTime) {
-      fn()
+      cb()
       lastTime = nowTime
     } else {
-      tid = setTimeout(fn, interval)
+      tid = setTimeout(cb, interval)
     }
   }
 }

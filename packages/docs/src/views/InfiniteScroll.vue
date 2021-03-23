@@ -4,11 +4,15 @@
       <li v-for="i in count" :key="i" class="infinite-list-item">{{ i }}</li>
     </ul><br><br>
 
-    <div class="infinite-list-wrapper" style="overflow:auto">
+    <div
+      class="infinite-list-wrapper"
+      style="overflow:auto"
+      infinite-scroll-delay="500"
+      infinite-scroll-immediate
+      v-infinite-scroll="load1"
+      :infinite-scroll-disabled="disabled">
       <ul
-        class="list"
-        v-infinite-scroll="load1"
-        :infinite-scroll-disabled="disabled">
+        class="list">
         <li v-for="i in count1" :key="i" class="list-item">{{ i }}</li>
       </ul>
       <p v-if="loading">加载中...</p>

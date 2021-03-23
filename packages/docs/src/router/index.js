@@ -70,8 +70,8 @@ export default new Router({
       component: () => import('../views/Switch.vue')
     },
     {
-      path: '/infinite-scroll',
-      component: () => import('../views/InfiniteScroll.vue')
+      path: '/timeline',
+      component: () => import('../views/Timeline.vue')
     }
   ]
 })
