@@ -12,6 +12,29 @@ export const getParentComponent = (vm, name) => {
   }
 }
 
+/**
+ * @param {import('vue').default} vm
+ * @param {string} name
+ * @param {boolean} flag
+ * @returns {import('vue').default[]}
+ */
+export const getChildComponents = (vm, name, flag) => {
+  const hasChild = _ => _.$children.length > 0
+  const isSameName = _ => _.$options.name === name
+  const fn = name
+    ? flag
+      ? vm => vm.$children.reduce((t, _) => {
+        return t.concat(isSameName(_) ? [_] : [], hasChild(_) ? fn(_) : [])
+      }, [])
+      : vm => vm.$children.reduce((t, _) => {
+        return t.concat(isSameName(_) ? [_] : hasChild(_) ? fn(_) : [])
+      }, [])
+    : vm => vm.$children.reduce((t, _) => {
+      return t.concat([_], hasChild(_) ? fn(_) : [])
+    }, [])
+  return fn(vm)
+}
+
 export const createStylesheet = (id, str) => {
   let el = document.getElementById(id)
   if (!el) {

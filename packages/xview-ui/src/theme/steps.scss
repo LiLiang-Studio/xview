@@ -1,0 +1,64 @@
+@import 'common/var.scss';
+
+.x-steps {
+  display: flex;
+  list-style: none;
+}
+
+$step: x-step;
+
+.#{$step} {
+  flex: 1;
+  &.is-process {
+    color: $--color-text-primary;
+  }
+  &.is-success {
+    color: $--color-success;
+  }
+  &.is-finish {
+    color: $--color-primary;
+  }
+  &.is-wait {
+    color: $--color-text-placeholder;
+  }
+  &_head {
+    display: flex;
+    align-items: center;
+  }
+  &_icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    transition: all .2s;
+    border: 2px solid;
+    &:not(.is-text) {
+      width: 40px;
+      font-size: 25px;
+      border: none;
+    }
+  }
+  &_line {
+    flex: 1;
+    border-top: 2px solid;
+  }
+  &_title {
+    font-size: 16px;
+    line-height: 2.4em;
+    font-weight: bold;
+  }
+  &_desc {
+    font-size: 12px;
+  }
+  &:last-child {
+    flex-basis: auto !important;
+    flex-shrink: 0;
+    flex-grow: 0;
+    .#{$step}_line {
+      display: none;
+    }
+  }
+}
