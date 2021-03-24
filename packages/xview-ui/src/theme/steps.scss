@@ -54,7 +54,7 @@ $step: x-step;
     font-size: 12px;
   }
   &:last-child {
-    flex-basis: auto !important;
+    flex: auto;
     flex-shrink: 0;
     flex-grow: 0;
     .#{$step}_line {

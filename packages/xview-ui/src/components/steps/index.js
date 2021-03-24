@@ -22,12 +22,12 @@ export const Step = {
   render (h) {
     const prefixCls = 'x-step'
     const { icon, statusObj } = this
-    const { index, status, count, isLast } = statusObj
+    const { index, status } = statusObj
     const iconVNode = this.$slots.icon || (icon && h('i', { class: icon }))
     const statusIcon = ({ success: 'x-icon-check', error: 'x-icon-close' })[status]
+    const desc = this.$slots.description || this.description
     return h('li', {
-      class: [prefixCls, `is-${status}`],
-      style: { flexBasis: `${1 / (count - 1) * 100}%`, maxWidth: isLast && `${1 / count * 100}%` }
+      class: [prefixCls, `is-${status}`]
     }, [
       h('div', {
         class: `${prefixCls}_head`
@@ -39,7 +39,7 @@ export const Step = {
       ]),
       h('div', { class: `${prefixCls}_main` }, [
         h('div', { class: `${prefixCls}_title` }, this.$slots.title || this.title),
-        h('div', { class: `${prefixCls}_desc` }, this.$slots.description || this.description)
+        desc && h('div', { class: `${prefixCls}_desc` }, desc)
       ])
     ])
   }
@@ -53,22 +53,10 @@ export const Steps = {
   },
   props: {
     space: [N, S],
-    direction: {
-      type: S,
-      default: 'horizontal'
-    },
-    active: {
-      type: N,
-      default: 0
-    },
-    processStatus: {
-      type: S,
-      default: 'process'
-    },
-    finishStatus: {
-      type: S,
-      default: 'finish'
-    },
+    direction: { type: S, default: 'horizontal' },
+    active: { type: N, default: 0 },
+    processStatus: { type: S, default: 'process' },
+    finishStatus: { type: S, default: 'finish' },
     alignCenter: B,
     simple: B
   },
@@ -82,13 +70,9 @@ export const Steps = {
     updateItemStatus () {
       const { active } = this
       this.$nextTick(() => {
-        const items = getChildComponents(this, 'XStep')
-        const count = items.length
-        items.forEach((_, i) => {
+        getChildComponents(this, 'XStep').forEach((_, i) => {
           _.statusObj = {
-            count,
             index: i,
-            isLast: i === count - 1,
             status: _.status || (i === active ? this.processStatus : i < active ? this.finishStatus : 'wait')
           }
         })
