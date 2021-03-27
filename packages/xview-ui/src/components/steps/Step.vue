@@ -1,21 +1,21 @@
 <template>
-  <li :class="[prefixCls, `is-${statusObj.status}`]" :style="statusObj.style">
-    <div :class="`${prefixCls}_head`">
-      <div :class="[`${prefixCls}_icon`, { 'is-text': !($slots.icon || icon) }]">
+  <li :class="[c, `is-${statusObj.status}`]" :style="statusObj.style">
+    <div :class="`${c}_head`">
+      <div :class="[`${c}_icon`, { 'is-text': !($slots.icon || icon) }]">
         <slot name="icon">
           <i v-if="icon" :class="icon" />
           <i v-else-if="statusIcon" :class="statusIcon" />
           <span v-else>{{ isSimple ? '' : statusObj.index + 1 }}</span>
         </slot>
       </div>
-      <div :class="`${prefixCls}_line`" />
+      <div :class="`${c}_line`" />
     </div>
-    <div :class="`${prefixCls}_main`">
-      <h4 :class="`${prefixCls}_title`">
+    <div :class="`${c}_main`">
+      <h4 :class="`${c}_title`">
         <slot name="title">{{ title }}</slot>
       </h4>
-      <i v-if="isSimple" :class="['x-icon-arrow-right', `${prefixCls}_arrow`]" />
-      <div v-else :class="`${prefixCls}_desc`">
+      <i v-if="isSimple" :class="['x-icon-arrow-right', `${c}_arrow`]" />
+      <div v-else :class="`${c}_desc`">
         <slot name="description">{{ description }}</slot>
       </div>
     </div>
@@ -34,7 +34,7 @@ export default {
     status: S
   },
   data () {
-    return { statusObj: {}, prefixCls: 'x-step' }
+    return { statusObj: {}, c: 'x-step' }
   },
   computed: {
     statusIcon () {
@@ -50,9 +50,6 @@ export default {
     this.$once('hook:beforeDestroy', () => {
       xSteps.removeItem(this)
     })
-  },
-  methods: {
-
   }
 }
 </script>
