@@ -1,52 +1,10 @@
 /** @typedef {import('vue').ComponentOptions} ComponentOptions */
 
+export { default as Step } from './Step.vue'
+
 const N = Number
 const S = String
 const B = Boolean
-
-/** @type {ComponentOptions} */
-export const Step = {
-  name: 'XStep',
-  inject: ['xSteps'],
-  props: {
-    title: S,
-    description: S,
-    icon: S,
-    status: S
-  },
-  data () {
-    return { statusObj: {} }
-  },
-  mounted () {
-    const { xSteps } = this
-    xSteps.addItem(this)
-    this.$once('hook:beforeDestroy', () => {
-      Steps.removeItem(this)
-    })
-  },
-  render (h) {
-    const prefixCls = 'x-step'
-    const { icon, statusObj } = this
-    const { status } = statusObj
-    const iconVNode = this.$slots.icon || (icon && h('i', { class: icon }))
-    const statusIcon = ({ success: 'x-icon-check', error: 'x-icon-close' })[status]
-    const desc = this.$slots.description || this.description
-    return h('li', {
-      class: [prefixCls, `is-${status}`]
-    }, [
-      h('div', { class: `${prefixCls}_head` }, [
-        h('div', { class: [`${prefixCls}_icon`, { 'is-text': !iconVNode }] }, [
-          iconVNode || (statusIcon && h('i', { class: statusIcon })) || h('span', statusObj.index + 1)
-        ]),
-        h('div', { class: `${prefixCls}_line` })
-      ]),
-      h('div', { class: `${prefixCls}_main` }, [
-        h('div', { class: `${prefixCls}_title` }, this.$slots.title || this.title),
-        desc && h('div', { class: `${prefixCls}_desc` }, desc)
-      ])
-    ])
-  }
-}
 
 /** @type {ComponentOptions} */
 export const Steps = {
@@ -71,11 +29,22 @@ export const Steps = {
       () => [this.active, this.items.length],
       () => {
         this.$nextTick(() => {
-          const { active, items } = this
+          const { active, items, space, alignCenter, simple } = this
+          const len = items.length
           items.forEach((_, i) => {
             _.statusObj = {
               index: i,
-              status: _.status || (i === active ? this.processStatus : i < active ? this.finishStatus : 'wait')
+              status: _.status || (i === active
+                ? this.processStatus
+                : i < active ? this.finishStatus : 'wait'),
+              style: {
+                flexBasis: !simple && alignCenter
+                  ? `${1 / len * 100}%`
+                  : i < len - 1 && `${1 / (len - 1) * 100}%`,
+                maxWidth: !simple && space
+                  ? `${space}px`
+                  : i === len - 1 ? `${1 / len * 100}%` : 'none'
+              }
             }
           })
         })
@@ -100,7 +69,7 @@ export const Steps = {
         !simple && `${prefixCls}_${this.direction}`,
         {
           'is-simple': simple,
-          'is-center': this.alignCenter
+          'is-center': !simple && this.alignCenter
         }
       ]
     }, this.$slots.default)

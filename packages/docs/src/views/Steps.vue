@@ -41,7 +41,7 @@
       </x-steps>
     </div><br><br>
 
-    <x-steps :active="1" simple>
+    <x-steps :active="1" simple :space="200">
       <x-step title="步骤 1" icon="x-icon-edit"></x-step>
       <x-step title="步骤 2" icon="x-icon-upload"></x-step>
       <x-step title="步骤 3" icon="x-icon-picture"></x-step>

@@ -1,73 +1,55 @@
 @import 'common/var.scss';
 
 $step: x-step;
-.x-steps {
-  display: flex;
+
+.#{$step} {
   list-style: none;
-  &_vertical {
-    height: 100%;
-    flex-flow: column;
+  flex-shrink: 1;
+  &:last-child {
+    flex-shrink: 0;
+    flex-grow: 0;
     .#{$step} {
-      display: flex;
-      align-items: flex-start;
-      &_head {
-        height: 100%;
-        flex-flow: column;
-        justify-content: center;
-      }
       &_line {
-        flex: 1;
-        border-top: none;
-        border-left: 2px solid;
+        display: none;
       }
-      &_main {
-        margin-left: 10px;
-      }
-      &_title {
-        line-height: 24px;
-        padding-bottom: 8px;
-      }
-      &:last-child .#{$step}_head {
-        height: auto;
+      &_desc {
+        padding-right: 0;
       }
     }
   }
-  &.is-center {
-    text-align: center;
-  }
-}
-
-.#{$step} {
-  flex: 1;
   &.is-process {
     color: $--color-text-primary;
+    .#{$step}_line {
+      border-color: $--color-text-placeholder;
+    }
   }
-  &.is-success {
-    color: $--color-success;
+  &.is-wait {
+    color: $--color-text-placeholder;
   }
   &.is-finish {
     color: $--color-primary;
   }
-  &.is-wait {
-    color: $--color-text-placeholder;
+  &.is-success {
+    color: $--color-success;
   }
   &.is-error {
     color: $--color-danger;
   }
   &_head {
-    display: flex;
-    align-items: center;
+    position: relative;
   }
   &_icon {
     width: 24px;
     height: 24px;
     border-radius: 50%;
+    border: 2px solid;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: #fff;
+    position: relative;
+    z-index: 1;
     transition: all .2s;
-    border: 2px solid;
     &:not(.is-text) {
       width: 40px;
       font-size: 25px;
@@ -75,26 +57,94 @@ $step: x-step;
     }
   }
   &_line {
-    flex: 1;
+    width: 100%;
     border-top: 2px solid;
-  }
-  &.is-process &_line {
-    border-color: $--color-text-placeholder;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
   &_title {
     font-size: 16px;
     line-height: 2.4em;
-    font-weight: bold;
   }
   &_desc {
     font-size: 12px;
+    padding-right: 10%;
+    margin-top: -5px;
+    line-height: 1.6;
   }
-  &:last-child {
-    flex: auto;
-    flex-shrink: 0;
-    flex-grow: 0;
-    .#{$step}_line {
-      display: none;
+}
+
+.x-steps {
+  display: flex;
+  &_vertical {
+    height: 100%;
+    flex-flow: column;
+    .#{$step} {
+      display: flex;
+      &_line {
+        border-top: none;
+        border-left: 2px solid;
+        top: 0;
+        left: 50%;
+        width: auto;
+        height: 100%;
+        transform: translateX(-50%);
+      }
+      &_main {
+        padding-left: 10px;
+      }
+      &_title {
+        line-height: 24px;
+        padding-bottom: 8px;
+      }
+    }
+  }
+  &.is-center {
+    text-align: center;
+    .#{$step} {
+      &_line {
+        left: 50%;
+      }
+      &_desc {
+        padding: 0 20%;
+      }
+    }
+  }
+  &.is-simple {
+    padding: 10px 8%;
+    background-color: $--background-color-base;
+    .#{$step} {
+      display: flex;
+      align-items: center;
+      &_icon {
+        background-color: transparent;
+        transform: scale(.7, .7);
+        &.is-text {
+          margin-right: 5px;
+        }
+      }
+      &_line {
+        display: none;
+      }
+      &_title {
+        line-height: 20px;
+      }
+      &_main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+      }
+      &_arrow {
+        flex: 1;
+        text-align: center;
+        font-size: 24px;
+        color: $--color-text-placeholder;
+      }
+      &:last-child .#{$step}_arrow {
+        display: none;
+      }
     }
   }
 }
