@@ -76,6 +76,10 @@ export default new Router({
     {
       path: '/steps',
       component: () => import('../views/Steps.vue')
+    },
+    {
+      path: '/message',
+      component: () => import('../views/Message.vue')
     }
   ]
 })

@@ -68,3 +68,20 @@ export const throttle = (fn, gapTime = 16) => {
     }
   }
 }
+
+let _maxZIndex
+
+export const getMaxZIndex = () => {
+  if (!_maxZIndex) {
+    _maxZIndex = 1000
+    const els = document.querySelectorAll('body>*')
+    for (let i = 0, len = els.length; i < len; i++) {
+      const { zIndex } = window.getComputedStyle(els[i], null)
+      if (!isNaN(zIndex) && zIndex && zIndex > _maxZIndex) {
+        _maxZIndex = zIndex
+      }
+    }
+  }
+  _maxZIndex += 2
+  return _maxZIndex
+}
