@@ -1,12 +1,11 @@
+import { S } from '../../types'
+
 /** @type {import('vue').ComponentOptions} */
 export const PageHeader = {
   name: 'XPageHeader',
   props: {
-    title: {
-      type: String,
-      default: '返回'
-    },
-    content: String
+    title: { type: S, default: '返回' },
+    content: S
   },
   render (h) {
     const prefixCls = 'x-page-header'

@@ -1,15 +1,15 @@
-const S = String
+import { N, S, F } from '../../types'
 
 /** @type {import('vue').ComponentOptions} */
 export const Avatar = {
   name: 'XAvatar',
   props: {
     icon: S,
-    size: [Number, S],
+    size: [N, S],
     shape: { type: S, default: 'circle' },
     src: S,
     fit: { type: S, default: 'cover' },
-    error: Function
+    error: F
   },
   data () {
     return { isImageExist: true }

@@ -23,7 +23,7 @@
 </template>
 
 <script>
-const S = String
+import { S } from '../../types'
 export default {
   name: 'XStep',
   inject: ['xSteps'],

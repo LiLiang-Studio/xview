@@ -1,7 +1,7 @@
 /** @typedef {import('vue').ComponentOptions} ComponentOptions  */
 
-const S = String
-const B = Boolean
+import { S, B } from '../../types'
+
 const prefixCls = 'x-timeline'
 
 /** @type {ComponentOptions} */

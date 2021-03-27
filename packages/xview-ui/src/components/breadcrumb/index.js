@@ -1,6 +1,7 @@
 /** @typedef {import('vue').ComponentOptions} ComponentOptions  */
 
-const S = String
+import { S, B, O } from '../../types'
+
 const compName = 'XBreadcrumb'
 const prefixCls = 'x-breadcrumb'
 
@@ -24,8 +25,8 @@ export const BreadcrumbItem = {
   name: `${compName}Item`,
   inject: [compName],
   props: {
-    to: [S, Object],
-    replace: Boolean
+    to: [S, O],
+    replace: B
   },
   render (h) {
     const { to } = this

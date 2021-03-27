@@ -2,11 +2,13 @@
  * @typedef {import('vue').ComponentOptions} ComponentOptions
  */
 
+import { S } from '../../types'
+
 /** @type {ComponentOptions} */
 export const Container = {
   name: 'XContainer',
   props: {
-    direction: String
+    direction: S
   },
   render (h) {
     const dir = this.direction
@@ -25,10 +27,7 @@ export const Container = {
 export const Header = {
   name: 'XHeader',
   props: {
-    height: {
-      type: String,
-      default: '60px'
-    }
+    height: { type: S, default: '60px' }
   },
   render (h) {
     return h('div', {
@@ -42,10 +41,7 @@ export const Header = {
 export const Aside = {
   name: 'XAside',
   props: {
-    width: {
-      type: String,
-      default: '300px'
-    }
+    width: { type: S, default: '300px' }
   },
   render (h) {
     return h('div', {
@@ -67,10 +63,7 @@ export const Main = {
 export const Footer = {
   name: 'XFooter',
   props: {
-    height: {
-      type: String,
-      default: '60px'
-    }
+    height: { type: S, default: '60px' }
   },
   render (h) {
     return h('div', {

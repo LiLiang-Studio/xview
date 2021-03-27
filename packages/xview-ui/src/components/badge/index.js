@@ -1,6 +1,4 @@
-const S = String
-const B = Boolean
-const N = Number
+import { N, S, B } from '../../types'
 
 /** @type {import("vue").ComponentOptions} */
 export const Badge = {

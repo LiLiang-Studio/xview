@@ -1,5 +1,4 @@
-const S = String
-const B = Boolean
+import { S, B } from '../../types'
 
 /** @type {import('vue').ComponentOptions} */
 export const Alert = {

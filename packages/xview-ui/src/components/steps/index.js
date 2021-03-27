@@ -1,10 +1,7 @@
 /** @typedef {import('vue').ComponentOptions} ComponentOptions */
+import { N, S, B } from '../../types'
 
 export { default as Step } from './Step.vue'
-
-const N = Number
-const S = String
-const B = Boolean
 
 /** @type {ComponentOptions} */
 export const Steps = {

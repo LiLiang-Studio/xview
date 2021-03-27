@@ -2,24 +2,19 @@
  * @typedef {import('vue').ComponentOptions} ComponentOptions
  */
 
+import { N, S } from '../../types'
 import { getParentComponent } from '../../utils'
 import { addStylesheet } from './utils'
 
-const N0 = { type: Number, default: 0 }
+const N0 = { type: N, default: 0 }
 
 /** @type {ComponentOptions} */
 export const Row = {
   name: 'XRow',
   props: {
     gutter: N0,
-    justify: {
-      type: String,
-      default: 'start'
-    },
-    align: {
-      type: String,
-      default: 'top'
-    }
+    justify: { type: S, default: 'start' },
+    align: { type: S, default: 'top' }
   },
   render (h) {
     const prefixCls = 'x-row'
@@ -39,7 +34,7 @@ export const Row = {
 export const Col = {
   name: 'XCol',
   props: {
-    span: { type: Number, default: 24 },
+    span: { type: N, default: 24 },
     offset: N0,
     push: N0,
     pull: N0,

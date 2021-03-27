@@ -1,6 +1,5 @@
-const N = Number
-const S = String
-const B = Boolean
+import { N, S, B } from '../../types'
+
 const NSB = [N, S, B]
 
 /** @type {import('vue').ComponentOptions} */

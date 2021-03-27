@@ -1,8 +1,7 @@
 /** @typedef {import('vue').ComponentOptions} ComponentOptions */
 
-const S = String
-const B = Boolean
-const N = Number
+import { N, S, B } from '../../types'
+
 const NSB = [N, S, B]
 const prefixCls = 'x-radio'
 const getSize = vm => {

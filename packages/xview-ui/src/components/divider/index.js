@@ -1,9 +1,11 @@
+import { S } from '../../types'
+
 /** @type {import('vue').ComponentOptions} */
 export const Divider = {
   name: 'XDivider',
   props: {
-    direction: String,
-    contentPosition: String
+    direction: S,
+    contentPosition: S
   },
   render (h) {
     const prefixCls = 'x-divider'

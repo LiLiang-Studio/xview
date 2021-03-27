@@ -1,10 +1,12 @@
+import { S } from '../../types'
+
 /** @type {import('vue').ComponentOptions} */
 export const Card = {
   name: 'XCard',
   props: {
-    header: String,
+    header: S,
     bodyStyle: {},
-    shadow: String
+    shadow: S
   },
   render (h) {
     const prefixCls = 'x-card'

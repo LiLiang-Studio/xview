@@ -1,12 +1,11 @@
 import { throttle } from '../../utils'
-
-const N = Number
+import { N, S } from '../../types'
 
 /** @type {import('vue').ComponentOptions} */
 export const Backtop = {
   name: 'XBacktop',
   props: {
-    target: String,
+    target: S,
     right: { type: N, default: 40 },
     bottom: { type: N, default: 40 },
     visiblilityHeight: { type: N, default: 200 }
