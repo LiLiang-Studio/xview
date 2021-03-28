@@ -84,6 +84,10 @@ export default new Router({
     {
       path: '/notification',
       component: () => import('../views/Notification.vue')
+    },
+    {
+      path: '/checkbox',
+      component: () => import('../views/Checkbox.vue')
     }
   ]
 })
