@@ -80,6 +80,10 @@ export default new Router({
     {
       path: '/message',
       component: () => import('../views/Message.vue')
+    },
+    {
+      path: '/notification',
+      component: () => import('../views/Notification.vue')
     }
   ]
 })
