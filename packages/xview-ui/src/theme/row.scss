@@ -1,0 +1,31 @@
+.x-row {
+  display: flex;
+  &_top {
+    align-items: flex-start;
+  }
+  &_middle {
+    align-items: center;
+  }
+  &_bottom {
+    align-items: flex-end;
+  }
+  &_start {
+    justify-content: flex-start;
+  }
+  &_end {
+    justify-content: flex-end;
+  }
+  &_center {
+    justify-content: center;
+  }
+  &_space-around {
+    justify-content: space-around;
+  }
+  &_space-between {
+    justify-content: space-between;
+  }
+}
+
+.x-col {
+  word-wrap: break-word;
+}

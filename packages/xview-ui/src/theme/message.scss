@@ -1,0 +1,70 @@
+@import 'common/var.scss';
+
+.x-message {
+  padding: 6px 12px;
+  font-size: 13px;
+  color: $--color-text-secondary;
+  text-align: center;
+  width: 100%;
+  transition: all .3s;
+  &-leave-active {
+    position: absolute;
+  }
+  &-enter, &-leave-to {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  &-wrapper {
+    position: fixed;
+    top: 14px;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  &_inner {
+    position: relative;
+    min-width: 280px;
+    border-radius: 4px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    pointer-events: all;
+    padding: 10px;
+    border: 1px solid mix(#fff, $--color-primary, 70%);
+    background-color: mix(#fff, $--color-primary, 90%);
+    &.is-close {
+      padding-right: 24px;
+    }
+    &.is-center {
+      justify-content: center;
+    }
+  }
+  &_icon {
+    margin-right: 10px;
+  }
+  &_close {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    &:hover {
+      color: $--color-text-regular;
+    }
+  }
+  &_success {
+    color: $--color-success;
+    border-color: mix(#fff, $--color-success, 70%);
+    background-color: mix(#fff, $--color-success, 90%);
+  }
+  &_warning {
+    color: $--color-warning;
+    border-color: mix(#fff, $--color-warning, 70%);
+    background-color: mix(#fff, $--color-warning, 90%);
+  }
+  &_error {
+    color: $--color-danger;
+    border-color: mix(#fff, $--color-danger, 70%);
+    background-color: mix(#fff, $--color-danger, 90%);
+  }
+}

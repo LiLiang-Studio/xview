@@ -1,0 +1,90 @@
+@import 'common/var.scss';
+
+$prefixCls: x-radio;
+
+.#{$prefixCls} {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1;
+  color: $--color-text-regular;
+  transition: all .2s;
+  & + & {
+    margin-left: 30px;
+  }
+  &_radio {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: $--border-base;
+    background-color: #fff;
+    &:hover {
+      border-color: $--color-primary;
+    }
+  }
+  &_dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all .2s;
+    &.#{$prefixCls}-enter, &.#{$prefixCls}-leave-to {
+      transform: scale(0);
+    }
+  }
+  &_label {
+    padding-left: 10px;
+  }
+  &.is-active {
+    color: $--color-primary;
+    .#{$prefixCls}_radio {
+      border-color: currentColor;
+      background-color: currentColor;
+    }
+  }
+  &.is-disabled {
+    cursor: not-allowed;
+    color: $--color-text-placeholder;
+    .#{$prefixCls}_radio {
+      background-color: $--background-color-base;
+    }
+    .#{$prefixCls}_dot {
+      background-color: $--color-text-placeholder;
+    }
+  }
+  &.is-border {
+    border-radius: 4px;
+    padding: 12px 20px;
+    border: $--border-base;
+    &.is-disabled {
+      border-color: $--border-color-lighter;
+    }
+    &.is-active {
+      border-color: $--color-primary;
+    }
+  }
+  &_medium.is-border {
+    padding: 10px 20px;
+  }
+  &_small.is-border {
+    padding: 9px 15px;
+  }
+  &_mini.is-border {
+    padding: 7px 15px;
+  }
+  &_small, &_mini {
+    &.is-border {
+      font-size: 12px;
+      .#{$prefixCls}_radio {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}

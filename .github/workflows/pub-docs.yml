@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Pub-docs
+name: pub-docs
 
 # Controls when the action will run. 
 on:
@@ -35,5 +35,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.PUBLISH_KEY }}
-          BRANCH: master
+          BRANCH: gh-pages
           FOLDER: packages/docs/dist

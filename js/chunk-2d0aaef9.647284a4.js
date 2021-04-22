@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0aaef9"],{"12ac":function(e,t,n){"use strict";n.r(t);var a=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticStyle:{padding:"30px 15px"}},[n("x-page-header",{attrs:{content:"详情页面"}})],1)},c=[],l=n("2be6"),p={},r=Object(l["a"])(p,a,c,!1,null,null,null);t["default"]=r.exports}}]);

@@ -1,0 +1,25 @@
+.x-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-width: 0;
+  &.is-vertical {
+    flex-direction: column;
+  }
+}
+
+.x-main, .x-container {
+  flex-basis: auto;
+}
+
+.x-main, .x-aside {
+  overflow: auto;
+}
+
+.x-main, .x-header, .x-footer {
+  padding: 0 20px;
+}
+
+.x-main {
+  flex: 1;
+}
